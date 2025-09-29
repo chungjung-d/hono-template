@@ -6,10 +6,13 @@ import { jwtManagerMiddleware } from '@middleware/jwt.manager.inject.middleware'
 import v1Router from '@router/v1';
 import { imageGenaiMiddleware } from '@middleware/image.genai.inject.middleware';
 import { r2Middleware } from '@middleware/r2.inject.middleware';
+import { cors } from 'hono/cors';
 
 dotenv.config({path: '.env'})
 
 const app = new Hono()
+
+app.use('*',cors())
 
 app.use(chatGenaiMiddleware(process.env.CHAT_GEMINI_API_KEY!))
 app.use(imageGenaiMiddleware(process.env.IMAGE_GEMINI_API_KEY!))
