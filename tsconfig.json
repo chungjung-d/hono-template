@@ -9,7 +9,8 @@
       "@handler/*": ["handler/*"],
       "@middleware/*": ["middleware/*"],
       "@utils/*": ["utils/*"],
-      "@router/*": ["router/*"]
+      "@router/*": ["router/*"],
+      "@client/*": ["client/*"]
     }
   },
   "include":[

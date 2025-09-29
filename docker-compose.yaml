@@ -3,16 +3,16 @@ version: '3.8'
 services:
   postgres:
     image: postgres:15
-    container_name: panooly-postgres
+    container_name: hono-postgres
     environment:
-      POSTGRES_DB: panooly
-      POSTGRES_USER: panooly
-      POSTGRES_PASSWORD: panooly123
+      POSTGRES_DB: hono
+      POSTGRES_USER: hono
+      POSTGRES_PASSWORD: hono123
     ports:
       - "5432:5432"
     volumes:
-      - panooly-api-postgres:/var/lib/postgresql/data
+      - hono-postgres:/var/lib/postgresql/data
     restart: unless-stopped
   
 volumes:
-  panooly-api-postgres:
+  hono-postgres:
