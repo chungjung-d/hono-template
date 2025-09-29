@@ -16,9 +16,6 @@ const app = new Hono()
 
 app.use('*',cors())
 
-// 정적 파일 서빙 (테스트 페이지용)
-app.use('/public/*', serveStatic({ root: './' }))
-
 app.use(chatGenaiMiddleware(process.env.CHAT_GEMINI_API_KEY!))
 app.use(imageGenaiMiddleware(process.env.IMAGE_GEMINI_API_KEY!))
 app.use(dbMiddleware(process.env.DATABASE_URL!))
