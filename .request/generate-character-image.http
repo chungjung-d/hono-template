@@ -1,0 +1,9 @@
+### Panooly API - Generate Character Image
+
+POST {{host}}/v1/character/generate-image
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "message": "20대 여고생 캐릭터, 일러스트 형태로 만들어줘/ 짧은 치마 교복 판타지 스타일 일러스트 느낌으로 그려줘. 배경도 좀 있어도 되고, 센 누나 느낌의 이미지 붉은 머리이고 이름은 강하린, 날렵한 체형에 단단한 근육이 있는 체격 / 붉은빛 눈동자이고 싸울떄는 머리가 빨갛게 불탐 반 전신 느낌으로 위에서 아래로 찍는 느낌의 프ㄹ필 사진/ 주로 화염의 대검을 들고 싸워, 살짝 섹시하게. 약간 야성미 넘치는 예쁜 여자? 한국식 (일본 애니 같은 느낌의 미인이면 좋겠어)"
+}

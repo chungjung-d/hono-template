@@ -1,0 +1,5 @@
+### Panooly API - Get User Profile
+
+GET {{host}}/v1/user/profile
+Content-Type: application/json
+Authorization: Bearer {{token}}

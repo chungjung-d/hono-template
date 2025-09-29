@@ -1,0 +1,8 @@
+### Panooly API - Register
+POST {{host}}/v1/auth/register
+Content-Type: application/json
+
+{
+  "email": "{{testEmail}}",
+  "password": "{{testPassword}}"
+}

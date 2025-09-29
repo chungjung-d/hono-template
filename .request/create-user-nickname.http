@@ -1,0 +1,8 @@
+### Panooly API - Create User Nickname
+POST {{host}}/v1/user/nickname
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "nickname": "{{testNickname}}"
+}

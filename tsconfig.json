@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "hono/jsx",
+    "baseUrl": "./src",
+    "paths": {
+      "@core/*": ["core/*"],
+      "@handler/*": ["handler/*"],
+      "@middleware/*": ["middleware/*"],
+      "@utils/*": ["utils/*"],
+      "@router/*": ["router/*"]
+    }
+  },
+  "include":[
+    "src/**/*.ts",
+    "src/hoho.d.ts",
+  ]
+}
