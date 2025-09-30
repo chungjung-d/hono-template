@@ -1,5 +1,4 @@
 import { Context } from 'hono';
-import { HTTPException } from 'hono/http-exception';
 import { z } from 'zod';
 import { eq } from 'drizzle-orm';
 import { LineClient } from '../../client/line/line';

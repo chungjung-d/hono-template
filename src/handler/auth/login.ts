@@ -5,6 +5,7 @@ import * as argon2 from 'argon2';
 import { eq } from 'drizzle-orm';
 import { User, users } from '../../client/database/schema/user';
 import { JWTManager } from '../../utils/jwt.manager';
+import { resolve } from '@utils/resolve';
 
 const loginBodySchema = z.object({
   email: z.string().email('Invalid email format'),
@@ -60,16 +61,11 @@ export const loginHandler = async (c: Context) => {
     });
   }
   
-  const jwtResult = jwtManager.generateJWT({ userId: user.id });
-  
-  if (jwtResult.err) {
-    throw new HTTPException(500, {
-      message: errorPrefix + 'Failed to generate token'
-    });
-  }
+  const jwtResult = resolve(jwtManager.generateJWT({ userId: user.id })
+      .mapErr((error) => new HTTPException(500, { message: errorPrefix + error.message })));
   
   const response: Response = {
-    token: jwtResult.val,
+    token: jwtResult,
   };
   
   return c.json({

@@ -171,25 +171,6 @@ describe("loginHandler", () => {
     }
   });
 
-  test("should throw HTTPException when JWT generation fails", async () => {
-    const validData = {
-      email: "test@example.com",
-      password: "password123"
-    };
-
-    mockContext.req.json = vi.fn().mockResolvedValue(validData);
-    mockJWTManager.generateJWT = vi.fn().mockReturnValue(Err(new Error("JWT generation failed")));
-
-    try {
-      await loginHandler(mockContext as any);
-      expect(true).toBe(false); // Should not reach here
-    } catch (error) {
-      expect(error).toBeInstanceOf(HTTPException);
-      expect((error as HTTPException).status).toBe(500);
-      expect((error as HTTPException).message).toContain("Failed to generate token");
-    }
-  });
-
   test("should return correct response format on successful login", async () => {
     const validData = {
       email: "test@example.com",

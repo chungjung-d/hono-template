@@ -49,7 +49,7 @@ export class LineClient {
      * @param params 추가 파라미터 (state, nonce)
      * @returns LINE 로그인 URL
      */
-    generateLoginUrl(params: LineLoginUrlParams = {}): string {
+    generateLoginUrl(params: LineLoginUrlParams = {}): Result<string, Error> {
         const url = new URL('https://access.line.me/oauth2/v2.1/authorize');
         
         url.searchParams.set('response_type', 'code');
@@ -62,7 +62,7 @@ export class LineClient {
             url.searchParams.set('nonce', params.nonce);
         }
 
-        return url.toString();
+        return Ok(url.toString());
     }
 
     /**
